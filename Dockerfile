@@ -1,5 +1,3 @@
-# Dockerfile
-
 # 1. Builder for the app
 FROM node:20-alpine as builder
 
