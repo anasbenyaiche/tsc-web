@@ -1,38 +1,37 @@
-# Stage 1: Build the Vite application
-FROM node:20-alpine AS builder
+# Step 1: Builder - Build both frontend and backend
+FROM node:20-alpine as builder
 
 WORKDIR /app
-
-# Copy package.json and package-lock.json first to leverage Docker cache
-COPY package*.json ./
-
-# Install dependencies for building
-RUN npm install
-
-# Copy the rest of the application source code
 COPY . .
 
-# Build the Vite application for production
-# This command will create the 'dist' directory with your static files
-RUN npm run build
+# Install dependencies and build the app
+RUN npm install && npm run build
 
-# Stage 2: Serve the built application with 'serve'
-FROM node:20-alpine AS production
+# Step 2: Production image with Apache and Node.js
+FROM node:20-alpine
 
+# Install Apache and enable required modules
+RUN apk update && \
+    apk add apache2 apache2-utils && \
+    mkdir -p /run/apache2 && \
+    sed -i '/LoadModule proxy_module/s/^#//g' /etc/apache2/httpd.conf && \
+    sed -i '/LoadModule proxy_http_module/s/^#//g' /etc/apache2/httpd.conf && \
+    sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf
+
+# Set working directory
 WORKDIR /app
 
-# Install the 'serve' package globally to serve static files
-RUN npm install -g serve
-
-# Copy only the built static assets from the builder stage
-# We only need the 'dist' folder for the final production image
+# Copy the build artifacts and production dependencies
 COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/package*.json ./
 
-# Expose the port that 'serve' will listen on (default for 'serve' is 3000, 
-# but you specified 8888 in your docker run command, so we'll use that for consistency)
-EXPOSE 5050
+RUN npm install --omit=dev
 
-# Command to run the 'serve' package, serving files from the 'dist' directory
-# -s: serves a static site
-# -l: listens on the specified port
-CMD ["serve", "-s", "dist", "-l", "8888"]
+# Copy Apache virtual host configuration
+COPY apache/000-default.conf /etc/apache2/conf.d/000-default.conf
+
+# Expose HTTP port
+EXPOSE 5050 8888
+
+# Start Apache in the background, and run the Node.js backend
+CMD sh -c "httpd -D FOREGROUND & node dist/index.js"
