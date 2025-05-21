@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* TSC color palette - Professional Blue Theme */
+  --background: 0 0% 100%;
+  --foreground: 220 20% 10%;
+  --muted: 215 20% 95%;
+  --muted-foreground: 220 10% 40%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 20% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 20% 10%;
+  --border: 215 20% 90%;
+  --input: 215 20% 90%;
+  --primary: 210 100% 30%;
+  --primary-light: 210 90% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 25 100% 50%;
+  --secondary-dark: 25 100% 45%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 210 50% 95%;
+  --accent-foreground: 220 20% 10%;
+  --destructive: 0 80% 45%;
+  --destructive-foreground: 0 0% 100%;
+  --ring: 210 100% 30%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 220 30% 10%;
+  --foreground: 0 0% 98%;
+  --muted: 220 20% 20%;
+  --muted-foreground: 220 10% 70%;
+  --popover: 220 30% 10%;
+  --popover-foreground: 0 0% 98%;
+  --card: 220 30% 10%;
+  --card-foreground: 0 0% 98%;
+  --border: 220 20% 20%;
+  --input: 220 20% 20%;
+  --primary: 210 100% 40%;
+  --primary-light: 210 90% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 25 100% 55%;
+  --secondary-dark: 25 100% 50%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 220 20% 20%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 80% 45%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 210 100% 40%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animate-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Lazy-loading styles */
+.lazy-img {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-img.loaded {
+  opacity: 1;
+}
+
+/* Bounce animation for scroll indicator */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+/* Service cards alignment */
+.service-card-equal-height {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card-features {
+  flex: 1;
+}
+
+/* Video fallback overlay opacities */
+.opacity-10 {
+  opacity: 0.1;
+}
+
+.opacity-20 {
+  opacity: 0.2;
+}
+
+.opacity-30 {
+  opacity: 0.3;
+}
+
+.opacity-40 {
+  opacity: 0.4;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-60 {
+  opacity: 0.6;
+}
+
+.opacity-70 {
+  opacity: 0.7;
+}
+
+.opacity-80 {
+  opacity: 0.8;
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+@media only screen and (max-width: 768px) {
+  nav {
+    background-color: #ffffff;
+  }
+}
