@@ -30,7 +30,7 @@ COPY --from=builder /app/dist ./dist
 
 # Expose the port that 'serve' will listen on (default for 'serve' is 3000, 
 # but you specified 8888 in your docker run command, so we'll use that for consistency)
-EXPOSE 8888
+EXPOSE 5050
 
 # Command to run the 'serve' package, serving files from the 'dist' directory
 # -s: serves a static site
