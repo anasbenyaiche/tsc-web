@@ -4,8 +4,10 @@ FROM node:20-alpine as builder
 WORKDIR /app
 COPY . .
 
-# Install dependencies and build the app
-RUN npm install && npm run build
+# Install ALL dependencies (including dev dependencies) for build
+RUN npm install
+# Build the app
+RUN npm run build
 
 # Step 2: Production image with Apache and Node.js
 FROM node:20-alpine
@@ -24,17 +26,22 @@ RUN apk update && \
         -e '/LoadModule ssl_module/s/^#//g' \
         /etc/apache2/httpd.conf && \
     # Add custom port configuration
-    echo "Listen 8888" >> /etc/apache2/httpd.conf
+    echo "Listen 8888" >> /etc/apache2/httpd.conf && \
+    # Add global ServerName
+    echo "ServerName localhost" >> /etc/apache2/httpd.conf
 
 # Set working directory
 WORKDIR /app
 
-# Copy the build artifacts and production dependencies
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
+# Copy package files first for better caching
+COPY package*.json ./
 
-# Install production dependencies only
+# Install production dependencies
 RUN npm install --omit=dev
+
+# Copy the build artifacts
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
 
 # Copy Apache virtual host configuration
 COPY apache/000-default.conf /etc/apache2/conf.d/000-default.conf
