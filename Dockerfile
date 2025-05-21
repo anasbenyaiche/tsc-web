@@ -11,8 +11,8 @@ FROM node:20-alpine
 
 # Install apache2 and enable proxy modules
 RUN apk update && apk add apache2 apache2-utils && mkdir -p /run/apache2
-RUN a2enmod proxy
-RUN a2enmod proxy_http
+RUN PATH="$PATH:/usr/sbin" a2enmod proxy
+RUN PATH="$PATH:/usr/sbin" a2enmod proxy_http
 
 # Copy built app
 WORKDIR /app
