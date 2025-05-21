@@ -1,37 +1,29 @@
-# Step 1: Builder - Build both frontend and backend
-FROM node:20-alpine as builder
 
-WORKDIR /app
-COPY . .
-
-# Install dependencies and build the app
-RUN npm install && npm run build
-
-# Step 2: Production image with Apache and Node.js
-FROM node:20-alpine
-
-# Install Apache and enable required modules
-RUN apk update && \
-    apk add apache2 apache2-utils && \
-    mkdir -p /run/apache2 && \
-    sed -i '/LoadModule proxy_module/s/^#//g' /etc/apache2/httpd.conf && \
-    sed -i '/LoadModule proxy_http_module/s/^#//g' /etc/apache2/httpd.conf && \
-    sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf
+# Use a Node.js base image for building
+FROM node:20-alpine AS build
 
 # Set working directory
 WORKDIR /app
 
-# Copy the build artifacts and production dependencies
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
+# Copy package files and install dependencies
+COPY package*.json ./
+RUN npm ci
 
-RUN npm install --omit=dev
+# Copy source files and build the application
+COPY . .
+RUN npm run build
 
-# Copy Apache virtual host configuration
-COPY apache/000-default.conf /etc/apache2/conf.d/000-default.conf
+# Use a smaller image for production
+FROM node:20-alpine
 
-# Expose HTTP port
-EXPOSE 5050 8888
+WORKDIR /app
 
-# Start Apache in the background, and run the Node.js backend
-CMD sh -c "httpd -D FOREGROUND & node dist/index.js"
+# Copy built assets from the build stage
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/package*.json ./
+
+# Install only production dependencies
+RUN npm ci --omit=dev
+
+# Start the application
+CMD ["node", "dist/index.js"]
