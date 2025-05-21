@@ -4,7 +4,7 @@ services:
   web:
     build: .
     ports:
-      - "80:80"
+      - "8888:8888"
     volumes:
       - ./logs:/var/log/apache2
     environment:
