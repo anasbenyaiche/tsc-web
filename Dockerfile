@@ -31,7 +31,7 @@ RUN npm install --omit=dev
 COPY apache/000-default.conf /etc/apache2/conf.d/000-default.conf
 
 # Expose HTTP port
-EXPOSE 80
+EXPOSE 5050 88
 
 # Start Apache in the background, and run the Node.js backend
 CMD sh -c "httpd -D FOREGROUND & node dist/index.js"
