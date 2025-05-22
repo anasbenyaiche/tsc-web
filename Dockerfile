@@ -47,7 +47,10 @@ COPY apache/000-default.conf /etc/apache2/conf.d/000-default.conf
 # Create required directories and set permissions
 RUN mkdir -p /var/log/apache2 && \
     chown -R apache:apache /var/log/apache2 && \
-    chmod -R 755 /var/log/apache2
+    chmod -R 755 /var/log/apache2 && \
+    # Set proper permissions for application files
+    chown -R apache:apache /app && \
+    chmod -R 755 /app
 
 # Expose HTTP ports
 EXPOSE 80 5050
