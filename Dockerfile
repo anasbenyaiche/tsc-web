@@ -25,8 +25,6 @@ RUN apk update && \
         -e '/LoadModule headers_module/s/^#//g' \
         -e '/LoadModule ssl_module/s/^#//g' \
         /etc/apache2/httpd.conf && \
-    # Add custom port configuration
-    echo "Listen 8888" >> /etc/apache2/httpd.conf && \
     # Add global ServerName
     echo "ServerName localhost" >> /etc/apache2/httpd.conf
 
@@ -52,7 +50,7 @@ RUN mkdir -p /var/log/apache2 && \
     chmod -R 755 /var/log/apache2
 
 # Expose HTTP ports
-EXPOSE 5050 8888
+EXPOSE 80 5050
 
 # Start Apache and Node.js backend
 CMD sh -c "httpd -D FOREGROUND & node dist/index.js"

@@ -1,22 +1,21 @@
-version: '3.8'
+version: '2.2'
 
 services:
-  tsc-web:
+  tsc_web:
     build: .
-    container_name: tsc-web
+    container_name: tsc_web
     ports:
-      - "8888:8888"
+      - "8081:80"
+      - "8443:443"
       - "5050:5050"
     restart: always
     healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8888"]
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:80"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
-    networks:
-      - tsc_network
+#      start_period: 40s
 
-networks:
-  tsc_network:
-    driver: bridge
+#    volumes:
+#      - /var/www/html/altaqa:/app
+
