@@ -37,9 +37,10 @@ COPY package*.json ./
 # Install production dependencies
 RUN npm install --omit=dev
 
-# Copy the build artifacts
+# Copy the build artifacts and ensure public files are included
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/client/public ./dist/public
 
 # Copy Apache virtual host configuration
 COPY apache/000-default.conf /etc/apache2/conf.d/000-default.conf
@@ -50,7 +51,9 @@ RUN mkdir -p /var/log/apache2 && \
     chmod -R 755 /var/log/apache2 && \
     # Set proper permissions for application files
     chown -R apache:apache /app && \
-    chmod -R 755 /app
+    chmod -R 755 /app && \
+    # Ensure Apache can read the files
+    chown -R apache:apache /app/dist
 
 # Expose HTTP ports
 EXPOSE 80 5050
