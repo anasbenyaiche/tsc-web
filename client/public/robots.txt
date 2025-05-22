@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://altaqa.com/sitemap.xml
+# Sitemap location
+Sitemap: https://altaqastrategy.com/sitemap.xml
+
+# Prevent indexing of any sensitive directories
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
