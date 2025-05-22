@@ -107,6 +107,7 @@ const Header = () => {
             <NavLink to="/services" label="Services" />
             <NavLink to="/odoo" label="ODOO ERP" />
             <NavLink to="/team" label="Notre équipe" />
+            {/* <NavLink to="/blog" label="Blog" /> */}
             <NavLink to="/contact" label="Contact" />
           </nav>
           
@@ -137,6 +138,7 @@ const Header = () => {
             <MobileNavLink to="/services" label="Services" icon="fa-cogs" />
             <MobileNavLink to="/odoo" label="ODOO ERP" icon="fa-database" />
             <MobileNavLink to="/team" label="Notre équipe" icon="fa-users" />
+            {/* <MobileNavLink to="/blog" label="Blog" icon="fa-blog" /> */}
             <MobileNavLink to="/contact" label="Contact" icon="fa-envelope" />
           </nav>
           
