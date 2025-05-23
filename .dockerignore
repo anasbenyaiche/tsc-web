@@ -1,4 +1,14 @@
 node_modules
 dist
 .git
+*.log
 .env
+.env.*
+npm-debug.log*
+.DS_Store
+coverage
+.vscode
+.idea
+*.md
+logs/
+tmp/

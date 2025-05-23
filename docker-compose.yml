@@ -1,21 +1,42 @@
-version: '2.2'
+version: '3.3'
 
 services:
-  tsc_web:
-    build: .
-    container_name: tsc_web
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "8081:80"
-      - "8443:443"
-      - "5050:5050"
-    restart: always
-    healthcheck:
-      test: ["CMD", "wget", "--spider", "-q", "http://localhost:80"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-#      start_period: 40s
+      - "8081:8081"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    networks:
+      - alta_network
 
-#    volumes:
-#      - /var/www/html/altaqa:/app
+  # Strapi service (commented out for future use)
+  # strapi:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.strapi
+  #   ports:
+  #     - "1337:1337"
+  #   environment:
+  #     - NODE_ENV=production
+  #     - DATABASE_CLIENT=sqlite
+  #   volumes:
+  #     - strapi_data:/app/database
+  #     - strapi_uploads:/app/public/uploads
+  #   restart: unless-stopped
+  #   networks:
+  #     - alta_network
 
+networks:
+  alta_network:
+    driver: bridge
+
+# Volumes for Strapi (commented out for future use)
+# volumes:
+#   strapi_data:
+#   strapi_uploads: 

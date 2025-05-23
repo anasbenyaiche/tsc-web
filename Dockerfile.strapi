@@ -1,0 +1,57 @@
+# Build stage
+FROM node:20-alpine as builder
+
+WORKDIR /app
+
+# Install build dependencies
+RUN apk add --no-cache build-base gcc autoconf automake libtool python3
+
+# Copy package files
+COPY strapi/package*.json ./
+
+# Install dependencies
+RUN npm ci
+
+# Copy source code
+COPY strapi .
+
+# Build Strapi admin
+RUN npm run build
+
+# Production stage
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install runtime dependencies
+RUN apk add --no-cache sqlite
+
+# Copy package files
+COPY strapi/package*.json ./
+
+# Install production dependencies only
+RUN npm ci --production
+
+# Copy built files and configurations from builder
+COPY --from=builder /app/build ./build
+COPY --from=builder /app/config ./config
+COPY --from=builder /app/src ./src
+COPY --from=builder /app/database ./database
+COPY --from=builder /app/public ./public
+
+# Create volume for SQLite database and uploads
+VOLUME ["/app/database", "/app/public/uploads"]
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=1337
+ENV DATABASE_CLIENT=sqlite
+
+# Expose the port
+EXPOSE 1337
+
+# Start Strapi
+CMD ["npm", "start"]
+
+# Note: This is a template Dockerfile for Strapi.
+# You'll need to adjust paths and configurations based on your actual Strapi setup. 

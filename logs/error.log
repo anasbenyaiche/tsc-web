@@ -1,0 +1,17 @@
+[Fri May 23 12:38:17.339135 2025] [lbmethod_heartbeat:notice] [pid 8:tid 8] AH02282: No slotmem from mod_heartmonitor
+[Fri May 23 12:38:17.343167 2025] [mpm_prefork:notice] [pid 8:tid 8] AH00163: Apache/2.4.62 (Unix) OpenSSL/3.3.3 configured -- resuming normal operations
+[Fri May 23 12:38:17.344385 2025] [core:notice] [pid 8:tid 8] AH00094: Command line: 'httpd -D FOREGROUND'
+[Fri May 23 13:03:15.322605 2025] [lbmethod_heartbeat:notice] [pid 8:tid 8] AH02282: No slotmem from mod_heartmonitor
+[Fri May 23 13:03:15.324687 2025] [mpm_prefork:notice] [pid 8:tid 8] AH00163: Apache/2.4.62 (Unix) OpenSSL/3.3.3 configured -- resuming normal operations
+[Fri May 23 13:03:15.324767 2025] [core:notice] [pid 8:tid 8] AH00094: Command line: 'httpd -e info -D FOREGROUND'
+[Fri May 23 13:04:48.016513 2025] [autoindex:error] [pid 19:tid 19] [client 172.22.0.1:34810] AH01276: Cannot serve directory /app/dist/: No matching DirectoryIndex (index.html) found, and server-generated directory index forbidden by Options directive
+[Fri May 23 13:09:06.558979 2025] [lbmethod_heartbeat:notice] [pid 8:tid 8] AH02282: No slotmem from mod_heartmonitor
+[Fri May 23 13:09:06.560146 2025] [mpm_prefork:notice] [pid 8:tid 8] AH00163: Apache/2.4.62 (Unix) OpenSSL/3.3.3 configured -- resuming normal operations
+[Fri May 23 13:09:06.560196 2025] [core:notice] [pid 8:tid 8] AH00094: Command line: 'httpd -e info -D FOREGROUND'
+[Fri May 23 13:15:02.942052 2025] [lbmethod_heartbeat:notice] [pid 8:tid 8] AH02282: No slotmem from mod_heartmonitor
+[Fri May 23 13:15:02.943285 2025] [mpm_prefork:notice] [pid 8:tid 8] AH00163: Apache/2.4.62 (Unix) OpenSSL/3.3.3 configured -- resuming normal operations
+[Fri May 23 13:15:02.943300 2025] [core:notice] [pid 8:tid 8] AH00094: Command line: 'httpd -e info -D FOREGROUND'
+[Fri May 23 13:48:13.790611 2025] [lbmethod_heartbeat:notice] [pid 9:tid 9] AH02282: No slotmem from mod_heartmonitor
+[Fri May 23 13:48:13.790646 2025] [core:warn] [pid 9:tid 9] AH00098: pid file /run/apache2/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri May 23 13:48:13.791868 2025] [mpm_prefork:notice] [pid 9:tid 9] AH00163: Apache/2.4.62 (Unix) OpenSSL/3.3.3 configured -- resuming normal operations
+[Fri May 23 13:48:13.791881 2025] [core:notice] [pid 9:tid 9] AH00094: Command line: 'httpd -e info -D FOREGROUND'
