@@ -60,3 +60,4 @@ EXPOSE 80 5050
 
 # Start Apache and Node.js backend
 CMD sh -c "httpd -D FOREGROUND & node dist/index.js"
+
