@@ -30,7 +30,7 @@ const TeamMemberCard = ({ member, index = 0 }: TeamMemberCardProps) => {
         <div className={`absolute inset-0 bg-primary/70 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-80' : 'opacity-0'}`}>
           <div className="flex space-x-3">
             <a 
-              href="#" 
+              href="https://www.linkedin.com/company/al-taqa-strategy-consulting/" 
               aria-label="LinkedIn"
               className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary hover:bg-secondary hover:text-white transition-colors"
             >

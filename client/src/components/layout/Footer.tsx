@@ -26,8 +26,8 @@ const Footer = () => {
               Chez ALTAQA, nous sommes dédiés à aider les entreprises à prospérer dans l'ère numérique en transformant leurs opérations traditionnelles.
             </p>
             <div className="flex space-x-4">
-              <SocialLink href="#" icon="fab fa-facebook-f" label="Facebook" />
-              <SocialLink href="#" icon="fab fa-linkedin-in" label="LinkedIn" />
+              <SocialLink href="https://www.facebook.com/profile.php?id=100086968802037s" icon="fab fa-facebook-f" label="Facebook" />
+              <SocialLink href="https://www.linkedin.com/company/al-taqa-strategy-consulting/" icon="fab fa-linkedin-in" label="LinkedIn" />
               <SocialLink href="#" icon="fab fa-twitter" label="Twitter" />
               <SocialLink href="#" icon="fab fa-instagram" label="Instagram" />
             </div>
@@ -75,7 +75,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <span className="text-neutral-300 block">Téléphone</span>
-                  <a href="tel:+21697624612" className="text-white hover:text-secondary transition-colors">+216 97 624 612</a>
+                  <a href="tel:+21654624612" className="text-white hover:text-secondary transition-colors">+216 97 624 612</a>
                 </div>
               </li>
               <li className="flex items-start group hover-lift">

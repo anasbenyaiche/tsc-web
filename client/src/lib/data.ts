@@ -149,14 +149,14 @@ export const teamMembers: TeamMemberType[] = [
     name: "Expert en Énergie & Digital",
     title: "Consultant en énergie et digitalisation",
     description: "Spécialisé dans la transition énergétique et la digitalisation, notre expert vous guide dans l'adoption de technologies innovantes pour optimiser votre consommation d'énergie.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600"
+    image: "/assets/images/mongi-profil-pic.jpg"
   },
   {
     id: 2,
     name: "Expert en Management",
     title: "Consultant en entrepreneuriat et management",
     description: "Avec une expertise en création d'entreprise et en gestion, notre consultant vous aide à développer des stratégies efficaces pour optimiser vos processus et votre rentabilité.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600"
+    image: "/assets/images/profile-pic.jpeg"
   },
   {
     id: 3,

@@ -145,10 +145,10 @@ const Header = () => {
           <div className="absolute bottom-10 left-0 right-0 p-6">
             <div className="flex flex-col items-center space-y-4">
               <div className="flex space-x-4">
-                <a href="#" aria-label="Facebook" className="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary-light transition-colors">
+                <a href="https://www.facebook.com/profile.php?id=100086968802037" aria-label="Facebook" className="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary-light transition-colors">
                   <i className="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" aria-label="LinkedIn" className="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary-light transition-colors">
+                <a href="https://www.linkedin.com/company/al-taqa-strategy-consulting/" aria-label="LinkedIn" className="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary-light transition-colors">
                   <i className="fab fa-linkedin-in"></i>
                 </a>
                 <a href="#" aria-label="Twitter" className="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white hover:bg-primary-light transition-colors">

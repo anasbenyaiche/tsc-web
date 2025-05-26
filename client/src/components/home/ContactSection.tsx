@@ -197,7 +197,7 @@ const ContactSection = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="font-medium text-white opacity-80 mb-1">Téléphone</h4>
-                    <a href="tel:+21697624612" className="text-white text-lg hover:text-secondary transition-colors duration-300">+216 97 624 612</a>
+                    <a href="tel:+21654624612" className="text-white text-lg hover:text-secondary transition-colors duration-300">+216 97 624 612</a>
                   </div>
                 </div>
                 
@@ -230,14 +230,14 @@ const ContactSection = () => {
                 <h4 className="font-medium text-white mb-4">Suivez-nous</h4>
                 <div className="flex space-x-4">
                   <a 
-                    href="#" 
+                    href="https://www.facebook.com/profile.php?id=100086968802037" 
                     aria-label="Facebook"
                     className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-secondary hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                   >
                     <i className="fab fa-facebook-f"></i>
                   </a>
                   <a 
-                    href="#" 
+                    href="https://www.linkedin.com/company/al-taqa-strategy-consulting/" 
                     aria-label="LinkedIn"
                     className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-secondary hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                   >
