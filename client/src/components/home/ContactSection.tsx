@@ -197,7 +197,7 @@ const ContactSection = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="font-medium text-white opacity-80 mb-1">Téléphone</h4>
-                    <a href="tel:+21654624612" className="text-white text-lg hover:text-secondary transition-colors duration-300">+216 97 624 612</a>
+                    <a href="tel:+21654624612" className="text-white text-lg hover:text-secondary transition-colors duration-300">c</a>
                   </div>
                 </div>
                 
