@@ -85,7 +85,7 @@ const PrivacyPolicy = () => {
               <h2>9. Nous contacter</h2>
               <p>Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter à :</p>
               <p>Email : <a href="mailto:altaqa.strategy@gmail.com" className="text-primary hover:underline">altaqa.strategy@gmail.com</a></p>
-              <p>Téléphone : <a href="tel:+21654624612" className="text-primary hover:underline">+216 97 624 612</a></p>
+              <p>Téléphone : <a href="tel:+21654624612" className="text-primary hover:underline">+216 54 624 612</a></p>
             </div>
           </div>
         </div>
